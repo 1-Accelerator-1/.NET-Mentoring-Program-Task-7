@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Task_7.Services.Interfaces;
@@ -22,6 +23,11 @@ namespace Task_7.Services
 
         public async Task CalcCollectionStats(IEnumerable<int> collection)
         {
+            if (collection == null)
+            {
+                throw new ArgumentNullException();
+            }
+
             _maxNumber = await Task.Run(() => collection.Max());
             _minNumber = await Task.Run(() => collection.Min());
             _numberOfElements = await Task.Run(() => collection.Count());
