@@ -11,6 +11,11 @@ namespace Task_7
                 throw new NumberOutOfRangeException("The number out of range (1 - 100).");
             }
 
+            if (number % 3 == 0)
+            {
+                return "Fizz";
+            }
+
             return number.ToString();
         }
     }
