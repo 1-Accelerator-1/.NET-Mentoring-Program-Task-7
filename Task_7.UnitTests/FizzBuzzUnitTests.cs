@@ -53,5 +53,18 @@ namespace Task_7.UnitTests
             stringNumber.Should().NotBeNullOrEmpty();
             stringNumber.Should().BeEquivalentTo("Fizz");
         }
+
+        [TestCase(5)]
+        [TestCase(10)]
+        [TestCase(50)]
+        public void ConvertNumberToString_PassNumbersMultiplesOfOnlyFive_ShouldReturnTextBuzz(int number)
+        {
+            // Act
+            var stringNumber = _fizzBuzz.ConvertNumberToString(number);
+
+            // Assert
+            stringNumber.Should().NotBeNullOrEmpty();
+            stringNumber.Should().BeEquivalentTo("Buzz");
+        }
     }
 }
