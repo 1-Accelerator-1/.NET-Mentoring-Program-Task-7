@@ -11,7 +11,7 @@ namespace Task_7.Services.Interfaces
 
         int NumberOfElements { get; }
 
-        int Average { get; }
+        double Average { get; }
 
         Task CalcCollectionStats(IEnumerable<int> collection);
     }
