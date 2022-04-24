@@ -40,5 +40,18 @@ namespace Task_7.UnitTests
             // Assert
             testFunc.Should().Throw<NumberOutOfRangeException>().WithMessage("The number out of range (1 - 100).");
         }
+
+        [TestCase(3)]
+        [TestCase(6)]
+        [TestCase(27)]
+        public void ConvertNumberToString_PassNumbersMultiplesOfOnlyThree_ShouldReturnTextFizz(int number)
+        {
+            // Act
+            var stringNumber = _fizzBuzz.ConvertNumberToString(number);
+
+            // Assert
+            stringNumber.Should().NotBeNullOrEmpty();
+            stringNumber.Should().BeEquivalentTo("Fizz");
+        }
     }
 }
