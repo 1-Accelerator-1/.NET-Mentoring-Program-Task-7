@@ -6,12 +6,12 @@ namespace Task_7.UnitTests
     [TestFixture]
     public class FizzBuzzUnitTests
     {
-        private readonly IFizzBuzz _fizzBuzz;
+        private IFizzBuzz _fizzBuzz;
 
         [SetUp]
         public void Setup()
         {
-
+            _fizzBuzz = new FizzBuzz();
         }
 
         [TestCase(1)]
