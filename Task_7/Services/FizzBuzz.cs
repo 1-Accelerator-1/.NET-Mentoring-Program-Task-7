@@ -1,6 +1,7 @@
-﻿using Task_7.ValidationExceptions;
+﻿using Task_7.Services.Interfaces;
+using Task_7.ValidationExceptions;
 
-namespace Task_7
+namespace Task_7.Services
 {
     internal class FizzBuzz : IFizzBuzz
     {
