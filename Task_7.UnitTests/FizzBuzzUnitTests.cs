@@ -1,5 +1,7 @@
 using FluentAssertions;
 using NUnit.Framework;
+using System;
+using Task_7.ValidationExceptions;
 
 namespace Task_7.UnitTests
 {
@@ -25,6 +27,18 @@ namespace Task_7.UnitTests
             // Assert
             stringNumber.Should().NotBeNullOrEmpty();
             stringNumber.Should().BeEquivalentTo(number.ToString());
+        }
+
+        [TestCase(0)]
+        [TestCase(-15)]
+        [TestCase(110)]
+        public void ConvertNumberToString_PassNumberGreaterThenHundredOrLessThenOne_ShouldThrowException(int number)
+        {
+            // Act
+            Func<string> testFunc = () => _fizzBuzz.ConvertNumberToString(number);
+
+            // Assert
+            testFunc.Should().Throw<NumberOutOfRangeException>().WithMessage("The number out of range (1 - 100).");
         }
     }
 }
